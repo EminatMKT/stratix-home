@@ -3,440 +3,754 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stratix Solutions — Producción Creativa Bajo Demanda</title>
-  <meta name="description" content="Agencia de marketing interna del Holding Eminat. Diseño, video, contenido y estrategia — todo en un solo lugar." />
+  <title>Stratix Solutions — Posicionamiento Digital para Profesionales</title>
+  <meta name="description" content="Construimos marcas personales que generan confianza, atraen clientes y crecen de forma sostenible. Estrategia, branding y contenido para profesionales." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #0A0A0F;
-      --s1: #12121A;
-      --s2: #1A1A25;
-      --border: #ffffff12;
-      --accent: #7C6FF7;
-      --accent-glow: rgba(124, 111, 247, .25);
-      --t1: #F0F0F5;
-      --t2: #A0A0B8;
-      --t3: #65657A;
+      --accent: #4F46E5;
+      --accent-light: #EEF2FF;
+      --black: #0F172A;
+      --gray-900: #111827;
+      --gray-700: #374151;
+      --gray-500: #6B7280;
+      --gray-400: #9CA3AF;
+      --gray-300: #D1D5DB;
+      --gray-200: #E5E7EB;
+      --gray-100: #F3F4F6;
+      --gray-50: #F9FAFB;
+      --white: #FFFFFF;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--t1);
-      overflow-x: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--gray-700);
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    /* ── NAV ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAV ────────────────────────────────────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--gray-200);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 1px 8px rgba(0,0,0,0.06); }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 48px;
-      background: rgba(10, 10, 15, .75);
-      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+      height: 72px;
     }
     .nav-logo {
-      display: flex; align-items: center; gap: 10px;
-      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 17px; color: var(--t1);
-      text-decoration: none;
+      font-weight: 800; font-size: 20px; color: var(--black);
+      text-decoration: none; letter-spacing: -0.02em;
     }
-    .nav-logo .dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 14px var(--accent-glow);
-    }
+    .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; align-items: center; gap: 32px; }
     .nav-links a {
-      font-size: 13px; font-weight: 500; color: var(--t2);
+      font-size: 14px; font-weight: 500; color: var(--gray-500);
       text-decoration: none; transition: color .2s;
     }
-    .nav-links a:hover { color: var(--t1); }
-    .btn-accent {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 9px 20px; border-radius: 10px;
-      background: var(--accent); color: #fff;
-      font-size: 13px; font-weight: 600; font-family: 'DM Sans', sans-serif;
-      text-decoration: none; border: none; cursor: pointer;
-      transition: transform .2s, box-shadow .2s;
+    .nav-links a:hover { color: var(--black); }
+    .nav-cta {
+      padding: 10px 24px; border-radius: 8px; background: var(--accent);
+      color: white !important; font-weight: 600; font-size: 14px;
+      text-decoration: none; transition: all .2s;
     }
-    .btn-accent:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 24px var(--accent-glow);
-    }
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 9px 20px; border-radius: 10px;
-      background: transparent; color: var(--t1);
-      border: 1px solid var(--border);
-      font-size: 13px; font-weight: 600; font-family: 'DM Sans', sans-serif;
-      text-decoration: none; cursor: pointer;
-      transition: border-color .2s, background .2s;
-    }
-    .btn-ghost:hover {
-      border-color: var(--accent);
-      background: rgba(124, 111, 247, .06);
-    }
-
-    .menu-toggle {
+    .nav-cta:hover { background: #4338CA; transform: translateY(-1px); }
+    .nav-hamburger {
       display: none; background: none; border: none; cursor: pointer;
-      flex-direction: column; gap: 5px; padding: 4px;
+      width: 32px; height: 32px; flex-direction: column; justify-content: center; gap: 5px;
     }
-    .menu-toggle span {
-      display: block; width: 22px; height: 2px; background: var(--t1);
-      border-radius: 2px; transition: transform .3s, opacity .3s;
-    }
+    .nav-hamburger span { display: block; height: 2px; background: var(--black); border-radius: 2px; transition: .3s; }
 
-    /* ── HERO ── */
+    /* ── HERO ───────────────────────────────────────────── */
     .hero {
-      min-height: 100vh; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; text-align: center;
-      padding: 140px 24px 80px; position: relative;
+      padding: 160px 0 120px;
+      background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+      position: relative;
     }
-    .hero::before {
-      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 600px; height: 600px; border-radius: 50%;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-      opacity: .3; pointer-events: none; filter: blur(80px);
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 100px;
+      background: var(--accent-light); color: var(--accent);
+      font-size: 13px; font-weight: 600; margin-bottom: 24px;
+      letter-spacing: 0.02em;
     }
     .hero h1 {
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: clamp(36px, 6vw, 72px); line-height: 1.05;
-      letter-spacing: -.02em;
-      max-width: 720px; position: relative;
+      font-size: 56px; font-weight: 900; line-height: 1.08;
+      color: var(--black); letter-spacing: -0.03em; margin-bottom: 24px;
     }
-    .hero h1 .gradient {
-      background: linear-gradient(135deg, var(--accent), #A78BFA, #F472B6);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
     .hero p {
-      font-size: clamp(15px, 2vw, 18px); color: var(--t2);
-      max-width: 520px; margin: 24px auto 36px; line-height: 1.7;
+      font-size: 18px; line-height: 1.7; color: var(--gray-500);
+      max-width: 480px; margin-bottom: 40px;
     }
-    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 16px 32px; border-radius: 10px; background: var(--accent);
+      color: white; font-weight: 700; font-size: 16px; border: none;
+      cursor: pointer; text-decoration: none; transition: all .25s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { background: #4338CA; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.3); }
+    .btn-secondary {
+      padding: 16px 32px; border-radius: 10px; background: transparent;
+      color: var(--gray-700); font-weight: 600; font-size: 16px;
+      border: 1px solid var(--gray-300); cursor: pointer;
+      text-decoration: none; transition: all .2s;
+    }
+    .btn-secondary:hover { border-color: var(--black); color: var(--black); }
+    .hero-image {
+      border-radius: 20px; overflow: hidden; aspect-ratio: 4/3;
+      position: relative;
+    }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-image::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(79,70,229,0.08) 0%, transparent 60%);
+    }
 
-    /* ── TICKER ── */
-    .ticker {
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      padding: 18px 0; overflow: hidden; white-space: nowrap;
-    }
-    .ticker-track {
-      display: inline-flex; animation: scroll 28s linear infinite;
-    }
-    .ticker-track span {
-      font-family: 'DM Mono', monospace; font-size: 13px; color: var(--t3);
-      padding: 0 24px; text-transform: uppercase; letter-spacing: .08em;
-    }
-    .ticker-track span::after {
-      content: ''; display: inline-block; width: 5px; height: 5px;
-      border-radius: 50%; background: var(--accent); margin-left: 24px;
-      vertical-align: middle; opacity: .5;
-    }
-    @keyframes scroll { to { transform: translateX(-50%); } }
-
-    /* ── SECTIONS ── */
-    section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent);
-      text-transform: uppercase; letter-spacing: .12em; margin-bottom: 12px;
+    /* ── SECTION SHARED ────────────────────────────────── */
+    section { padding: 120px 0; }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;
     }
     .section-title {
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: clamp(26px, 4vw, 40px); margin-bottom: 48px; line-height: 1.15;
+      font-size: 44px; font-weight: 900; color: var(--black);
+      line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 20px;
     }
+    .section-subtitle {
+      font-size: 18px; color: var(--gray-500); line-height: 1.7;
+      max-width: 600px;
+    }
+    .section-center { text-align: center; }
+    .section-center .section-subtitle { margin: 0 auto; }
 
-    /* ── SERVICES ── */
-    .services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-    }
-    .service-card {
-      background: var(--s1); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px 24px;
-      transition: transform .25s, border-color .25s, box-shadow .25s;
-    }
-    .service-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(124, 111, 247, .25);
-      box-shadow: 0 8px 40px rgba(124, 111, 247, .08);
-    }
-    .service-icon {
-      width: 44px; height: 44px; border-radius: 12px;
+    /* ── CLIENTES ───────────────────────────────────────── */
+    .clientes { padding: 80px 0; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); background: var(--gray-50); }
+    .clientes-label { font-size: 13px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.1em; text-align: center; margin-bottom: 40px; }
+    .clientes-grid {
       display: flex; align-items: center; justify-content: center;
-      font-size: 20px; margin-bottom: 16px;
-      background: rgba(124, 111, 247, .1);
+      gap: 48px; flex-wrap: wrap;
     }
-    .service-card h3 {
-      font-family: 'Syne', sans-serif; font-weight: 700;
-      font-size: 16px; margin-bottom: 8px;
+    .cliente-item {
+      font-size: 15px; font-weight: 700; color: var(--gray-400);
+      display: flex; align-items: center; gap: 8px;
+      transition: color .3s; cursor: default;
     }
-    .service-card p { font-size: 13px; color: var(--t3); line-height: 1.6; }
+    .cliente-item:hover { color: var(--gray-700); }
+    .cliente-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 
-    /* ── CLIENTS ── */
-    .clients-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    /* ── PROBLEMA ───────────────────────────────────────── */
+    .problema { background: var(--black); color: white; padding: 120px 0; }
+    .problema-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .problema .section-tag { color: rgba(255,255,255,0.4); }
+    .problema .section-title { color: white; }
+    .problema p { color: rgba(255,255,255,0.6); font-size: 17px; line-height: 1.8; }
+    .problema-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+    .problema-stat {
+      padding: 24px; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
     }
-    .client-card {
-      background: var(--s1); border: 1px solid var(--border);
-      border-radius: 14px; padding: 24px 20px;
-      display: flex; align-items: center; gap: 14px;
-      transition: transform .25s, border-color .25s;
-    }
-    .client-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,.08);
-    }
-    .client-dot {
-      width: 36px; height: 36px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; font-family: 'Syne', sans-serif; font-weight: 800;
-      color: #fff; flex-shrink: 0;
-    }
-    .client-card span {
-      font-size: 13px; font-weight: 600; line-height: 1.35;
-    }
+    .problema-stat .num { font-size: 36px; font-weight: 900; color: var(--accent); margin-bottom: 4px; letter-spacing: -0.02em; }
+    .problema-stat .label { font-size: 13px; color: rgba(255,255,255,0.5); }
+    .problema-image { border-radius: 20px; overflow: hidden; aspect-ratio: 4/3; }
+    .problema-image img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); }
 
-    /* ── STATS ── */
-    .stats {
-      display: flex; justify-content: center; gap: 60px;
-      padding: 80px 48px; text-align: center;
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    /* ── PROPUESTA DE VALOR ─────────────────────────────── */
+    .propuesta { background: var(--white); }
+    .propuesta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; }
+    .pilar {
+      padding: 40px 32px; border-radius: 16px; border: 1px solid var(--gray-200);
+      background: var(--white); transition: all .3s;
     }
-    .stat-number {
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: clamp(36px, 5vw, 56px);
-      background: linear-gradient(135deg, var(--accent), #A78BFA);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .pilar:hover { border-color: var(--accent); box-shadow: 0 8px 32px rgba(79,70,229,0.08); transform: translateY(-4px); }
+    .pilar-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: var(--accent-light); display: flex; align-items: center;
+      justify-content: center; font-size: 24px; margin-bottom: 24px;
     }
-    .stat-label {
-      font-size: 13px; color: var(--t3); margin-top: 6px;
-    }
+    .pilar h3 { font-size: 20px; font-weight: 800; color: var(--black); margin-bottom: 12px; letter-spacing: -0.01em; }
+    .pilar p { font-size: 15px; color: var(--gray-500); line-height: 1.7; }
 
-    /* ── CTA ── */
-    .cta {
-      text-align: center; padding: 100px 24px; position: relative;
+    /* ── SERVICIOS ──────────────────────────────────────── */
+    .servicios { background: var(--gray-50); }
+    .servicio-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: center; margin-bottom: 80px;
     }
-    .cta::before {
-      content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-      width: 500px; height: 400px; border-radius: 50%;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-      opacity: .2; pointer-events: none; filter: blur(80px);
+    .servicio-row:last-child { margin-bottom: 0; }
+    .servicio-row.reverse { direction: rtl; }
+    .servicio-row.reverse > * { direction: ltr; }
+    .servicio-num {
+      font-size: 80px; font-weight: 900; color: var(--gray-200);
+      line-height: 1; margin-bottom: 16px; letter-spacing: -0.04em;
     }
-    .cta h2 {
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: clamp(28px, 4vw, 44px); margin-bottom: 16px; position: relative;
+    .servicio-content h3 { font-size: 32px; font-weight: 800; color: var(--black); margin-bottom: 16px; letter-spacing: -0.02em; }
+    .servicio-content p { font-size: 16px; color: var(--gray-500); line-height: 1.8; margin-bottom: 24px; }
+    .servicio-list { list-style: none; }
+    .servicio-list li {
+      padding: 10px 0; font-size: 15px; color: var(--gray-700);
+      display: flex; align-items: flex-start; gap: 12px;
+      border-bottom: 1px solid var(--gray-200);
     }
-    .cta p {
-      font-size: 15px; color: var(--t2); margin-bottom: 32px;
-      max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.6;
-    }
+    .servicio-list li:last-child { border-bottom: none; }
+    .servicio-check { color: var(--accent); font-weight: 700; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .servicio-image { border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; }
+    .servicio-image img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* ── FOOTER ── */
+    /* ── POR QUE STRATIX ───────────────────────────────── */
+    .porque { background: var(--white); }
+    .porque-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; }
+    .razon {
+      padding: 40px 32px; border-radius: 16px; background: var(--gray-50);
+      border: 1px solid var(--gray-200); position: relative; overflow: hidden;
+    }
+    .razon::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: var(--accent); opacity: 0; transition: opacity .3s;
+    }
+    .razon:hover::before { opacity: 1; }
+    .razon-num {
+      font-size: 48px; font-weight: 900; color: var(--accent);
+      opacity: 0.15; line-height: 1; margin-bottom: 16px;
+    }
+    .razon h3 { font-size: 20px; font-weight: 800; color: var(--black); margin-bottom: 12px; }
+    .razon p { font-size: 15px; color: var(--gray-500); line-height: 1.7; }
+
+    /* ── RESULTADO FINAL ───────────────────────────────── */
+    .resultado {
+      background: linear-gradient(135deg, var(--accent) 0%, #7C3AED 100%);
+      color: white; text-align: center;
+    }
+    .resultado .section-tag { color: rgba(255,255,255,0.6); }
+    .resultado .section-title { color: white; max-width: 700px; margin: 0 auto 24px; }
+    .resultado p { color: rgba(255,255,255,0.8); font-size: 18px; max-width: 600px; margin: 0 auto 48px; line-height: 1.7; }
+    .resultado-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 800px; margin: 0 auto; }
+    .resultado-card {
+      padding: 32px 24px; border-radius: 16px;
+      background: rgba(255,255,255,0.12); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .resultado-card .icon { font-size: 28px; margin-bottom: 12px; }
+    .resultado-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .resultado-card p { font-size: 14px; color: rgba(255,255,255,0.7); margin: 0; }
+
+    /* ── CTA / CONTACTO ────────────────────────────────── */
+    .contacto { background: var(--gray-50); }
+    .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .contacto-info h2 {
+      font-size: 40px; font-weight: 900; color: var(--black);
+      line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+    .contacto-info p { font-size: 17px; color: var(--gray-500); line-height: 1.7; margin-bottom: 32px; }
+    .contacto-perks { list-style: none; }
+    .contacto-perks li {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 15px; color: var(--gray-700); font-weight: 500;
+      padding: 8px 0;
+    }
+    .contacto-perks .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .contacto-form {
+      padding: 48px; border-radius: 20px; background: var(--white);
+      border: 1px solid var(--gray-200); box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    }
+    .contacto-form h3 { font-size: 20px; font-weight: 800; color: var(--black); margin-bottom: 28px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block; font-size: 13px; font-weight: 600;
+      color: var(--gray-700); margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%; padding: 14px 16px; border-radius: 10px;
+      border: 1px solid var(--gray-300); background: var(--white);
+      font-family: 'Inter', sans-serif; font-size: 15px; color: var(--gray-900);
+      outline: none; transition: border-color .2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79,70,229,0.1); }
+    .form-group textarea { min-height: 100px; resize: vertical; }
+    .form-submit {
+      width: 100%; padding: 16px; border-radius: 10px; background: var(--accent);
+      color: white; font-weight: 700; font-size: 16px; border: none;
+      cursor: pointer; transition: all .2s;
+    }
+    .form-submit:hover { background: #4338CA; }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
     footer {
-      text-align: center; padding: 32px 24px;
-      border-top: 1px solid var(--border);
-      font-size: 12px; color: var(--t3);
+      background: var(--black); color: rgba(255,255,255,0.5);
+      padding: 80px 0 40px;
     }
-    footer span { color: var(--accent); }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 64px;
+    }
+    .footer-brand .logo { font-size: 20px; font-weight: 800; color: white; margin-bottom: 16px; }
+    .footer-brand .logo span { color: var(--accent); }
+    .footer-brand p { font-size: 14px; line-height: 1.7; max-width: 280px; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; }
+    .footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; padding: 4px 0; transition: color .2s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom {
+      padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px;
+    }
+    .footer-social { display: flex; gap: 16px; }
+    .footer-social a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 14px; transition: color .2s; }
+    .footer-social a:hover { color: white; }
 
-    /* ── FADE-IN ANIMATION ── */
-    .fade-in {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity .6s ease-out, transform .6s ease-out;
+    /* ── SCROLL ANIMATIONS ──────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .clients-grid { grid-template-columns: repeat(2, 1fr); }
-      .stats { gap: 36px; }
+    /* ── MOBILE ─────────────────────────────────────────── */
+    .mobile-menu {
+      display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+      z-index: 99; flex-direction: column; padding: 32px 24px; gap: 8px;
     }
-    @media (max-width: 640px) {
-      nav { padding: 14px 20px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 18px; font-weight: 600; color: var(--gray-700);
+      text-decoration: none; padding: 16px 0; border-bottom: 1px solid var(--gray-200);
+    }
+    .mobile-menu .nav-cta {
+      margin-top: 16px; text-align: center; display: block;
+      padding: 16px; border-radius: 10px;
+    }
+
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 44px; }
+      .section-title { font-size: 36px; }
+      .servicio-num { font-size: 60px; }
+      .servicio-content h3 { font-size: 26px; }
+    }
+
+    @media (max-width: 768px) {
       .nav-links { display: none; }
-      .nav-links.open {
-        display: flex; flex-direction: column;
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: rgba(10, 10, 15, .95);
-        backdrop-filter: blur(16px);
-        padding: 20px 24px; gap: 16px;
-        border-bottom: 1px solid var(--border);
-      }
-      .menu-toggle { display: flex; }
-      section { padding: 60px 20px; }
-      .services-grid, .clients-grid { grid-template-columns: 1fr; }
-      .stats { flex-direction: column; gap: 28px; padding: 60px 20px; }
-      .hero { padding: 120px 20px 60px; }
+      .nav-hamburger { display: flex; }
+      .hero { padding: 120px 0 80px; }
+      .hero-grid,
+      .problema-grid,
+      .servicio-row,
+      .contacto-grid,
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .servicio-row.reverse { direction: ltr; }
+      .hero h1 { font-size: 36px; }
+      .hero p { font-size: 16px; }
+      .section-title { font-size: 30px; }
+      .propuesta-grid,
+      .porque-grid,
+      .resultado-cards { grid-template-columns: 1fr; }
+      .hero-image { aspect-ratio: 16/9; }
+      .contacto-form { padding: 28px; }
+      .contacto-info h2 { font-size: 30px; }
+      .clientes-grid { gap: 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      section { padding: 80px 0; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 30px; }
+      .hero-buttons { flex-direction: column; }
+      .hero-buttons a { text-align: center; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .problema-stats { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
-  <nav>
-    <a href="#" class="nav-logo">
-      <span class="dot"></span>
-      Stratix Solutions
-    </a>
-    <div class="nav-links" id="navLinks">
-      <a href="#servicios">Servicios</a>
-      <a href="#clientes">Clientes</a>
-      <a href="#contacto">Contacto</a>
-      <a href="https://app.stratixsolutions.us" class="btn-accent">Acceder al sistema &rarr;</a>
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Stratix<span>.</span></a>
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#propuesta">Propuesta</a>
+        <a href="#porque">Nosotros</a>
+        <a href="#contacto" class="nav-cta">Agenda tu evaluacion</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#servicios" onclick="closeMenu()">Servicios</a>
+    <a href="#propuesta" onclick="closeMenu()">Propuesta</a>
+    <a href="#porque" onclick="closeMenu()">Nosotros</a>
+    <a href="#contacto" onclick="closeMenu()">Contacto</a>
+    <a href="#contacto" class="nav-cta" onclick="closeMenu()">Agenda tu evaluacion</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
-    <h1 class="fade-in">Producción creativa.<br><span class="gradient">Bajo demanda.</span></h1>
-    <p class="fade-in">Agencia de marketing interna del Holding Eminat. Diseño, video, contenido y estrategia — todo en un solo lugar.</p>
-    <div class="hero-buttons fade-in">
-      <a href="#servicios" class="btn-ghost">Ver servicios</a>
-      <a href="https://app.stratixsolutions.us" class="btn-accent">Iniciar sesión &rarr;</a>
-    </div>
-  </section>
-
-  <!-- TICKER -->
-  <div class="ticker">
-    <div class="ticker-track">
-      <span>Diseño Gráfico</span><span>Video</span><span>Community Manager</span><span>Branding</span><span>Motion Graphics</span><span>Estrategia Digital</span><span>Contenido</span><span>IA</span><span>Diseño Web</span>
-      <span>Diseño Gráfico</span><span>Video</span><span>Community Manager</span><span>Branding</span><span>Motion Graphics</span><span>Estrategia Digital</span><span>Contenido</span><span>IA</span><span>Diseño Web</span>
-    </div>
-  </div>
-
-  <!-- SERVICES -->
-  <section id="servicios">
-    <div class="section-label fade-in">Servicios</div>
-    <div class="section-title fade-in">Todo lo que tu marca necesita.</div>
-    <div class="services-grid">
-      <div class="service-card fade-in">
-        <div class="service-icon">🎨</div>
-        <h3>Diseño Gráfico</h3>
-        <p>Posts, stories, banners, presentaciones y piezas visuales para todas las plataformas.</p>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-icon">🎬</div>
-        <h3>Video & Motion</h3>
-        <p>Edición de video, motion graphics, reels y contenido audiovisual de alto impacto.</p>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-icon">📱</div>
-        <h3>Community Manager</h3>
-        <p>Gestión de redes sociales, calendarios de contenido, interacción y crecimiento orgánico.</p>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-icon">✦</div>
-        <h3>Branding & Identidad</h3>
-        <p>Logotipos, manuales de marca, sistemas visuales y estrategia de identidad corporativa.</p>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-icon">📊</div>
-        <h3>Estrategia Digital</h3>
-        <p>Planificación de campañas, análisis de métricas, pauta digital y optimización de resultados.</p>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-icon">⚡</div>
-        <h3>Automatización IA</h3>
-        <p>Flujos automatizados, chatbots inteligentes, generación de contenido y herramientas con IA.</p>
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-tag reveal">
+            <span style="width:6px;height:6px;border-radius:50%;background:var(--accent)"></span>
+            Posicionamiento Digital Estrategico
+          </div>
+          <h1 class="reveal reveal-delay-1">Tu expertise merece una marca que <em>genere impacto</em></h1>
+          <p class="reveal reveal-delay-2">Construimos marcas personales y corporativas que posicionan a profesionales como referentes en su industria. Estrategia, identidad visual y contenido &mdash; todo integrado.</p>
+          <div class="hero-buttons reveal reveal-delay-3">
+            <a href="#contacto" class="btn-primary">Agenda tu evaluacion <span>&rarr;</span></a>
+            <a href="#servicios" class="btn-secondary">Ver servicios</a>
+          </div>
+        </div>
+        <div class="hero-image reveal reveal-delay-2">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Equipo de estrategia en reunion" loading="eager" />
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CLIENTS -->
-  <section id="clientes">
-    <div class="section-label fade-in">Clientes</div>
-    <div class="section-title fade-in">Nuestros clientes.</div>
-    <div class="clients-grid">
-      <div class="client-card fade-in">
-        <div class="client-dot" style="background:rgba(96,165,250,.15);color:#60A5FA">E</div>
-        <span>EMC Medical Center</span>
-      </div>
-      <div class="client-card fade-in">
-        <div class="client-dot" style="background:rgba(244,114,182,.15);color:#F472B6">V</div>
-        <span>Soy Vivi Negrete</span>
-      </div>
-      <div class="client-card fade-in">
-        <div class="client-dot" style="background:rgba(167,139,250,.15);color:#A78BFA">E</div>
-        <span>Eminat Research Group</span>
-      </div>
-      <div class="client-card fade-in">
-        <div class="client-dot" style="background:rgba(251,146,60,.15);color:#FB923C">V</div>
-        <span>VN Foundation</span>
-      </div>
-      <div class="client-card fade-in">
-        <div class="client-dot" style="background:rgba(52,211,153,.15);color:#34D399">P</div>
-        <span>Premier by Eminat</span>
-      </div>
-      <div class="client-card fade-in">
-        <div class="client-dot" style="background:rgba(248,113,113,.15);color:#F87171">O</div>
-        <span>Ornella IA</span>
-      </div>
-      <div class="client-card fade-in">
-        <div class="client-dot" style="background:rgba(251,176,64,.15);color:#FBB040">M</div>
-        <span>Mentor</span>
+  <!-- CLIENTES -->
+  <section class="clientes">
+    <div class="container">
+      <div class="clientes-label reveal">Marcas que confian en nosotros</div>
+      <div class="clientes-grid reveal reveal-delay-1">
+        <div class="cliente-item"><span class="cliente-dot" style="background:#60A5FA"></span>Eminat Medical Center</div>
+        <div class="cliente-item"><span class="cliente-dot" style="background:#F472B6"></span>Soy Vivi Negrete</div>
+        <div class="cliente-item"><span class="cliente-dot" style="background:#A78BFA"></span>Eminat Research Group</div>
+        <div class="cliente-item"><span class="cliente-dot" style="background:#FB923C"></span>VN Foundation</div>
+        <div class="cliente-item"><span class="cliente-dot" style="background:#34D399"></span>Premier</div>
+        <div class="cliente-item"><span class="cliente-dot" style="background:#F87171"></span>Ornella IA</div>
+        <div class="cliente-item"><span class="cliente-dot" style="background:#FBB040"></span>Mentor</div>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <div class="stats">
-    <div class="fade-in">
-      <div class="stat-number">284+</div>
-      <div class="stat-label">Tareas completadas</div>
+  <!-- PROBLEMA -->
+  <section class="problema">
+    <div class="container">
+      <div class="problema-grid">
+        <div>
+          <div class="section-tag reveal">El desafio</div>
+          <h2 class="section-title reveal reveal-delay-1">Los profesionales modernos necesitan mas que un titulo</h2>
+          <p class="reveal reveal-delay-2">El mercado esta saturado. Tener un titulo, experiencia y habilidades ya no es suficiente. Tus competidores estan construyendo marcas personales, generando contenido y capturando la atencion de los clientes que deberian ser tuyos.</p>
+          <p class="reveal reveal-delay-2" style="margin-top:16px">Sin una estrategia de posicionamiento digital, tu expertise queda invisible. Y la visibilidad &mdash; no solo el talento &mdash; es lo que impulsa el crecimiento profesional hoy.</p>
+          <div class="problema-stats reveal reveal-delay-3">
+            <div class="problema-stat"><div class="num">82%</div><div class="label">de clientes investigan online antes de contactar a un profesional</div></div>
+            <div class="problema-stat"><div class="num">3x</div><div class="label">mas oportunidades para profesionales con marca personal activa</div></div>
+            <div class="problema-stat"><div class="num">67%</div><div class="label">de profesionales no tienen presencia digital estrategica</div></div>
+            <div class="problema-stat"><div class="num">5s</div><div class="label">para causar una primera impresion digital &mdash; tu perfil lo dice todo</div></div>
+          </div>
+        </div>
+        <div class="problema-image reveal reveal-delay-2">
+          <img src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=800&q=80" alt="Profesional trabajando" loading="lazy" />
+        </div>
+      </div>
     </div>
-    <div class="fade-in">
-      <div class="stat-number">7</div>
-      <div class="stat-label">Marcas activas</div>
-    </div>
-    <div class="fade-in">
-      <div class="stat-number">1</div>
-      <div class="stat-label">Equipo creativo</div>
-    </div>
-  </div>
+  </section>
 
-  <!-- CTA -->
-  <section class="cta" id="contacto">
-    <h2 class="fade-in">¿Listo para solicitar?</h2>
-    <p class="fade-in">Accede al sistema para crear solicitudes de diseño, video y más.</p>
-    <a href="https://app.stratixsolutions.us/login" class="btn-accent fade-in" style="font-size:15px;padding:13px 32px">
-      Acceder al sistema &rarr;
-    </a>
+  <!-- PROPUESTA DE VALOR -->
+  <section class="propuesta" id="propuesta">
+    <div class="container">
+      <div class="section-center">
+        <div class="section-tag reveal">Nuestra propuesta</div>
+        <h2 class="section-title reveal reveal-delay-1">Tres pilares para transformar tu presencia profesional</h2>
+        <p class="section-subtitle reveal reveal-delay-2">No vendemos likes ni seguidores. Construimos sistemas de posicionamiento que generan autoridad, confianza y crecimiento medible.</p>
+      </div>
+      <div class="propuesta-grid">
+        <div class="pilar reveal">
+          <div class="pilar-icon">&#127891;</div>
+          <h3>Educacion como ventaja</h3>
+          <p>Transformamos tu conocimiento en contenido estrategico que educa a tu audiencia, genera confianza y te posiciona como la opcion obvia en tu campo.</p>
+        </div>
+        <div class="pilar reveal reveal-delay-1">
+          <div class="pilar-icon">&#10024;</div>
+          <h3>Profesionalismo visual</h3>
+          <p>Creamos una identidad visual coherente que refleja la calidad de tu trabajo. Desde tu logo hasta cada pieza de contenido, todo comunica excelencia.</p>
+        </div>
+        <div class="pilar reveal reveal-delay-2">
+          <div class="pilar-icon">&#127919;</div>
+          <h3>Diferenciacion real</h3>
+          <p>Identificamos tu propuesta de valor unica y la articulamos de manera que te separe de la competencia. No eres uno mas &mdash; eres la referencia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="servicios" id="servicios">
+    <div class="container">
+      <div class="section-center" style="margin-bottom:80px">
+        <div class="section-tag reveal">Servicios</div>
+        <h2 class="section-title reveal reveal-delay-1">Una metodologia completa para tu posicionamiento</h2>
+        <p class="section-subtitle reveal reveal-delay-2">Cada servicio esta disenado para cubrir una fase critica de tu estrategia de posicionamiento digital.</p>
+      </div>
+
+      <!-- Servicio A -->
+      <div class="servicio-row reveal">
+        <div class="servicio-content">
+          <div class="servicio-num">01</div>
+          <h3>Identidad y Nicho</h3>
+          <p>Definimos quien eres profesionalmente, a quien le hablas y como te diferencias. La base sobre la que se construye todo lo demas.</p>
+          <ul class="servicio-list">
+            <li><span class="servicio-check">&#10003;</span> Auditoria de marca personal actual</li>
+            <li><span class="servicio-check">&#10003;</span> Definicion de nicho y audiencia ideal</li>
+            <li><span class="servicio-check">&#10003;</span> Propuesta de valor diferenciada</li>
+            <li><span class="servicio-check">&#10003;</span> Narrativa y tono de comunicacion</li>
+            <li><span class="servicio-check">&#10003;</span> Diseno de identidad visual completa</li>
+          </ul>
+        </div>
+        <div class="servicio-image">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80" alt="Sesion de estrategia" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Servicio B -->
+      <div class="servicio-row reverse reveal">
+        <div class="servicio-content">
+          <div class="servicio-num">02</div>
+          <h3>Presencia Digital</h3>
+          <p>Construimos y optimizamos todos tus puntos de contacto digitales para que cada interaccion refuerce tu posicionamiento.</p>
+          <ul class="servicio-list">
+            <li><span class="servicio-check">&#10003;</span> Website profesional y landing pages</li>
+            <li><span class="servicio-check">&#10003;</span> Optimizacion de perfiles en redes sociales</li>
+            <li><span class="servicio-check">&#10003;</span> LinkedIn como plataforma de autoridad</li>
+            <li><span class="servicio-check">&#10003;</span> Google Business y SEO local</li>
+            <li><span class="servicio-check">&#10003;</span> Email marketing y automatizaciones</li>
+          </ul>
+        </div>
+        <div class="servicio-image">
+          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80" alt="Trabajo digital en equipo" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Servicio C -->
+      <div class="servicio-row reveal">
+        <div class="servicio-content">
+          <div class="servicio-num">03</div>
+          <h3>Contenidos Estrategicos</h3>
+          <p>Producimos contenido que no solo se ve bien &mdash; convierte. Cada pieza tiene un proposito dentro de tu estrategia de crecimiento.</p>
+          <ul class="servicio-list">
+            <li><span class="servicio-check">&#10003;</span> Calendario editorial mensual</li>
+            <li><span class="servicio-check">&#10003;</span> Produccion de reels, carruseles y posts</li>
+            <li><span class="servicio-check">&#10003;</span> Copywriting persuasivo</li>
+            <li><span class="servicio-check">&#10003;</span> Video y fotografia profesional</li>
+            <li><span class="servicio-check">&#10003;</span> Reportes de rendimiento y optimizacion</li>
+          </ul>
+        </div>
+        <div class="servicio-image">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Creacion de contenido" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE STRATIX -->
+  <section class="porque" id="porque">
+    <div class="container">
+      <div class="section-center">
+        <div class="section-tag reveal">Por que Stratix</div>
+        <h2 class="section-title reveal reveal-delay-1">No somos una agencia mas. Somos tu equipo de posicionamiento.</h2>
+        <p class="section-subtitle reveal reveal-delay-2">Entendemos que tu marca personal es tu activo mas valioso. La tratamos con la seriedad y la estrategia que merece.</p>
+      </div>
+      <div class="porque-grid">
+        <div class="razon reveal">
+          <div class="razon-num">01</div>
+          <h3>Branding estrategico, no estetico</h3>
+          <p>No hacemos "logos bonitos". Cada decision de diseno esta respaldada por una estrategia de posicionamiento. Tu marca se ve bien porque comunica bien.</p>
+        </div>
+        <div class="razon reveal reveal-delay-1">
+          <div class="razon-num">02</div>
+          <h3>Enfoque en resultados medibles</h3>
+          <p>Autoridad percibida, leads generados, crecimiento de audiencia. Medimos lo que importa y optimizamos basandonos en datos, no en suposiciones.</p>
+        </div>
+        <div class="razon reveal reveal-delay-2">
+          <div class="razon-num">03</div>
+          <h3>Metodologia estructurada</h3>
+          <p>Seguimos un proceso probado de diagnostico, estrategia, ejecucion y optimizacion. No improvisamos &mdash; cada paso tiene un proposito claro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADO FINAL -->
+  <section class="resultado">
+    <div class="container">
+      <div class="section-tag reveal">El resultado</div>
+      <h2 class="section-title reveal reveal-delay-1">Una marca personal que trabaja por ti, 24/7</h2>
+      <p class="reveal reveal-delay-2">Cuando tu posicionamiento digital esta bien construido, deja de ser un gasto y se convierte en tu mejor vendedor. Asi es como se ve el resultado:</p>
+      <div class="resultado-cards reveal reveal-delay-3">
+        <div class="resultado-card">
+          <div class="icon">&#128170;</div>
+          <h4>Genera confianza</h4>
+          <p>Tu audiencia te percibe como experto antes de la primera conversacion.</p>
+        </div>
+        <div class="resultado-card">
+          <div class="icon">&#129309;</div>
+          <h4>Atrae clientes</h4>
+          <p>Los clientes ideales te encuentran y te eligen &mdash; sin que tengas que perseguirlos.</p>
+        </div>
+        <div class="resultado-card">
+          <div class="icon">&#128200;</div>
+          <h4>Crece sostenible</h4>
+          <p>Un sistema predecible de visibilidad y generacion de oportunidades que escala contigo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO / CTA -->
+  <section class="contacto" id="contacto">
+    <div class="container">
+      <div class="contacto-grid">
+        <div class="contacto-info reveal">
+          <div class="section-tag">Comienza ahora</div>
+          <h2>Agenda tu diagnostico gratuito</h2>
+          <p>En 30 minutos evaluamos tu presencia digital actual, identificamos oportunidades y te presentamos un plan de accion personalizado. Sin compromiso.</p>
+          <ul class="contacto-perks">
+            <li><span class="dot"></span> Evaluacion completa de tu marca actual</li>
+            <li><span class="dot"></span> Analisis de tu competencia directa</li>
+            <li><span class="dot"></span> Plan de accion con pasos concretos</li>
+            <li><span class="dot"></span> Sin compromiso ni costo</li>
+          </ul>
+        </div>
+        <div class="contacto-form reveal reveal-delay-1">
+          <h3>Solicita tu evaluacion</h3>
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electronico</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="telefono">Telefono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+1 (305) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="mensaje">Cuentanos sobre tu proyecto</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Describe brevemente tu situacion actual y que te gustaria lograr..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Agendar evaluacion gratuita &rarr;</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <span>Stratix Solutions</span> · Powered by Eminat Holding · 2026
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">Stratix<span>.</span></div>
+          <p>Posicionamiento digital estrategico para profesionales y marcas que buscan crecer con proposito.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <a href="#servicios">Identidad y Nicho</a>
+          <a href="#servicios">Presencia Digital</a>
+          <a href="#servicios">Contenidos Estrategicos</a>
+          <a href="#contacto">Consultoria</a>
+        </div>
+        <div class="footer-col">
+          <h4>Compania</h4>
+          <a href="#propuesta">Propuesta</a>
+          <a href="#porque">Nosotros</a>
+          <a href="#contacto">Contacto</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="mailto:hello@stratixsolutions.us">hello@stratixsolutions.us</a>
+          <a href="#">Miami, FL</a>
+          <a href="#">Guayaquil, EC</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Stratix Solutions. Todos los derechos reservados.</span>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script>
-    // Mobile menu toggle
-    document.getElementById('menuToggle').addEventListener('click', function () {
-      document.getElementById('navLinks').classList.toggle('open');
-    });
+    // Nav scroll effect
+    const navbar = document.getElementById('navbar')
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 10)
+    })
 
-    // Fade-in on scroll
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open')
+    }
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('open')
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add('visible')
         }
-      });
-    }, { threshold: 0.1 });
+      })
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' })
 
-    document.querySelectorAll('.fade-in').forEach(function (el) {
-      observer.observe(el);
-    });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+
+    // Form handler
+    function handleSubmit(e) {
+      e.preventDefault()
+      const btn = e.target.querySelector('.form-submit')
+      const originalText = btn.textContent
+      btn.textContent = 'Enviando...'
+      btn.disabled = true
+      setTimeout(() => {
+        btn.textContent = '&#10003; Solicitud enviada!'
+        btn.style.background = '#059669'
+        e.target.reset()
+        setTimeout(() => {
+          btn.textContent = originalText
+          btn.style.background = ''
+          btn.disabled = false
+        }, 3000)
+      }, 1500)
+    }
   </script>
 
 </body>
