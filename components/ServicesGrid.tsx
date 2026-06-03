@@ -36,7 +36,7 @@ export default function ServicesGrid() {
             >
               <Link
                 href={`/servicios/${s.slug}`}
-                className="group flex h-full flex-col rounded-2xl border border-slate-line bg-white p-7 transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-lift"
+                className="group flex h-full flex-col rounded-2xl border border-slate-line bg-white p-7 transition hover:-translate-y-1 hover:border-indigo/40 hover:shadow-glow"
               >
                 <span className="grid h-12 w-12 place-items-center rounded-xl bg-mist text-indigo transition group-hover:bg-indigo group-hover:text-white">
                   <ServiceIcon iconKey={s.iconKey} />

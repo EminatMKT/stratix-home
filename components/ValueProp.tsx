@@ -7,9 +7,7 @@ export default function ValueProp() {
     <section className="bg-navy py-24 text-white md:py-32">
       <div className="container-x">
         <Reveal>
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-300">
-            {v.eyebrow}
-          </p>
+          <p className="section-tag-light">{v.eyebrow}</p>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-tight text-white md:text-5xl">

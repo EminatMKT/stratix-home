@@ -11,7 +11,7 @@
     font-family: var(--font-poppins), system-ui, sans-serif;
   }
   h1, h2, h3, h4 {
-    @apply text-slate-ink tracking-tight;
+    @apply tracking-tight;
     font-family: var(--font-poppins), system-ui, sans-serif;
   }
 }
@@ -35,15 +35,22 @@
            transition hover:text-navy;
   }
   .section-tag {
-    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em]
-           text-indigo;
+    @apply inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-indigo
+           before:block before:h-px before:w-8 before:bg-indigo before:content-[''];
+  }
+  .section-tag-light {
+    @apply inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-indigo-300
+           before:block before:h-px before:w-8 before:bg-indigo-300 before:content-[''];
   }
   .section-title {
-    @apply font-display text-4xl font-bold leading-[1.1] text-slate-ink
-           md:text-5xl lg:text-[3.25rem];
+    @apply font-display text-4xl font-bold leading-[1.05] text-slate-ink
+           md:text-5xl lg:text-[3.5rem];
   }
   .section-sub {
     @apply max-w-2xl text-base leading-relaxed text-slate md:text-lg;
+  }
+  .eyebrow-divider {
+    @apply mt-6 h-px w-16 bg-indigo;
   }
 }
 

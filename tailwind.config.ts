@@ -61,6 +61,7 @@ const config: Config = {
       boxShadow: {
         card: '0 4px 24px rgba(27, 26, 94, 0.08)',
         lift: '0 18px 40px -12px rgba(27, 26, 94, 0.25)',
+        glow: '0 0 0 1px rgba(79, 70, 229, 0.18), 0 22px 44px -14px rgba(79, 70, 229, 0.35)',
       },
       animation: {
         marquee: 'marquee 40s linear infinite',
