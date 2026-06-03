@@ -25,13 +25,13 @@ export const CLIENTS: Client[] = [
     result: 'Identidad corporativa B2B para investigación de mercado.',
   },
   {
-    name: 'VN Foundation',
+    name: 'Vivi Negrete Foundation',
     color: '#F97316',
     tag: 'Fundación · ONG',
     result: 'Plataforma digital y campañas para impacto social.',
   },
   {
-    name: 'Premier',
+    name: 'Premier by Eminat',
     color: '#10B981',
     tag: 'Servicios profesionales',
     result: 'Generación de leads B2B con campañas paid + LinkedIn.',
@@ -43,7 +43,7 @@ export const CLIENTS: Client[] = [
     result: 'Producto SaaS con narrativa de marca y posicionamiento global.',
   },
   {
-    name: 'Mentor',
+    name: 'Eminat Mentor',
     color: '#F59E0B',
     tag: 'Educación ejecutiva',
     result: 'Programa de mentoring con embudo de captación premium.',

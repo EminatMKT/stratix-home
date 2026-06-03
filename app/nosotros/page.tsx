@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function NosotrosPage() {
   return (
     <>
-      <section className="bg-gradient-to-b from-soft/60 to-white pt-36 pb-20">
+      <section className="bg-gradient-to-b from-mist to-white pt-36 pb-20">
         <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <Reveal>
@@ -21,7 +21,7 @@ export default function NosotrosPage() {
             </Reveal>
             <Reveal delay={0.05}>
               <h1 className="section-title mt-4">
-                Somos un equipo de marketing <span className="text-deep">creativo y estratégico</span>.
+                Somos un equipo de marketing <span className="text-indigo">creativo y estratégico</span>.
               </h1>
             </Reveal>
             <Reveal delay={0.1}>

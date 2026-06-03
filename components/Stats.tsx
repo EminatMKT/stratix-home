@@ -36,8 +36,8 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
 export default function Stats() {
   const items = t.stats.items
   return (
-    <section className="relative overflow-hidden bg-deep">
-      <div className="absolute inset-0 bg-gradient-to-r from-deep via-deep to-teal-700" />
+    <section className="relative overflow-hidden bg-navy">
+      <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy-800 to-indigo-700" />
       <div className="container-x relative grid gap-10 py-20 md:grid-cols-4">
         {items.map((s) => (
           <div key={s.label} className="text-center">

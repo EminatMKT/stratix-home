@@ -13,14 +13,14 @@ export const metadata: Metadata = {
 export default function ServiciosIndex() {
   return (
     <>
-      <section className="bg-gradient-to-b from-soft/60 to-white pt-36 pb-20">
+      <section className="bg-gradient-to-b from-mist to-white pt-36 pb-20">
         <div className="container-x">
           <Reveal>
             <p className="section-tag">Servicios</p>
           </Reveal>
           <Reveal delay={0.05}>
             <h1 className="section-title mt-4 max-w-4xl">
-              Un equipo de marketing completo, <span className="text-deep">a tu medida.</span>
+              Un equipo de marketing completo, <span className="text-indigo">a tu medida.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
@@ -38,14 +38,14 @@ export default function ServiciosIndex() {
             <Reveal key={s.slug} delay={(i % 3) * 0.06}>
               <Link
                 href={`/servicios/${s.slug}`}
-                className="group flex h-full flex-col rounded-2xl border border-slate-line bg-white p-7 transition hover:-translate-y-1 hover:border-deep/30 hover:shadow-lift"
+                className="group flex h-full flex-col rounded-2xl border border-slate-line bg-white p-7 transition hover:-translate-y-1 hover:border-indigo/30 hover:shadow-lift"
               >
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-soft/70 text-deep transition group-hover:bg-deep group-hover:text-white">
+                <span className="grid h-12 w-12 place-items-center rounded-xl bg-mist text-indigo transition group-hover:bg-indigo group-hover:text-white">
                   <ServiceIcon iconKey={s.iconKey} />
                 </span>
                 <h3 className="mt-6 font-display text-lg font-bold text-slate-ink">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">{s.short}</p>
-                <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-deep">
+                <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-indigo">
                   Ver detalle →
                 </span>
               </Link>

@@ -29,12 +29,12 @@ export default function CTAFinal() {
   return (
     <section
       id="cta-final"
-      className="relative overflow-hidden bg-gradient-to-br from-deep via-deep to-teal-700 py-24 text-white md:py-32"
+      className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-800 to-indigo-700 py-24 text-white md:py-32"
     >
-      <div className="absolute -right-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-teal/30 blur-3xl" />
+      <div className="absolute -right-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-violet/30 blur-3xl" />
       <div className="container-x relative grid gap-12 lg:grid-cols-2">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal">Hablemos</p>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-300">Hablemos</p>
           <h2 className="mt-4 font-display text-4xl font-extrabold leading-tight md:text-5xl">
             {c.title}
           </h2>
@@ -43,7 +43,7 @@ export default function CTAFinal() {
             {['Diagnóstico estratégico gratuito', 'Plan de siguientes pasos', 'Sin compromiso ni costo'].map(
               (l) => (
                 <li key={l} className="flex items-center gap-3">
-                  <span className="grid h-5 w-5 place-items-center rounded-full bg-teal/30 text-teal">
+                  <span className="grid h-5 w-5 place-items-center rounded-full bg-indigo/30 text-indigo-200">
                     <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden>
                       <path d="M2 5l2 2 4-4" stroke="currentColor" strokeWidth="1.8" fill="none" />
                     </svg>
@@ -80,7 +80,7 @@ export default function CTAFinal() {
                 onChange={update('message')}
                 placeholder="¿Qué necesitas resolver con tu marketing?"
                 rows={4}
-                className="w-full rounded-xl border border-slate-line bg-white px-4 py-3 text-sm text-slate-ink outline-none transition focus:border-deep focus:ring-2 focus:ring-deep/10"
+                className="w-full rounded-xl border border-slate-line bg-white px-4 py-3 text-sm text-slate-ink outline-none transition focus:border-indigo focus:ring-2 focus:ring-indigo/10"
               />
             </div>
             <button
@@ -92,12 +92,12 @@ export default function CTAFinal() {
               {status === 'sending' ? 'Enviando…' : status === 'success' ? '¡Recibido!' : c.submit + ' →'}
             </button>
             {status === 'success' && (
-              <p className="text-center text-sm font-medium text-deep">
+              <p className="text-center text-sm font-medium text-indigo">
                 Gracias. Te respondemos en menos de 24 horas.
               </p>
             )}
             {status === 'error' && (
-              <p className="text-center text-sm font-medium text-accent">
+              <p className="text-center text-sm font-medium text-indigo">
                 Ocurrió un error. Escríbenos directo a {t.footer.email}.
               </p>
             )}
@@ -129,7 +129,7 @@ function Field({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="w-full rounded-xl border border-slate-line bg-white px-4 py-3 text-sm text-slate-ink outline-none transition focus:border-deep focus:ring-2 focus:ring-deep/10"
+        className="w-full rounded-xl border border-slate-line bg-white px-4 py-3 text-sm text-slate-ink outline-none transition focus:border-indigo focus:ring-2 focus:ring-indigo/10"
       />
     </div>
   )

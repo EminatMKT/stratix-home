@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { t } from '@/lib/content'
 import { SERVICES } from '@/lib/services'
 import ServiceIcon from './ServiceIcon'
+import Logo from './Logo'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -26,15 +27,12 @@ export default function Navbar() {
     <header
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 shadow-[0_1px_0_0_#E2E7EA] backdrop-blur'
-          : 'bg-transparent'
+          ? 'bg-navy/95 shadow-[0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur'
+          : 'bg-navy'
       }`}
     >
       <div className="container-x flex h-20 items-center justify-between">
-        <Link href="/" className="font-display text-2xl font-extrabold tracking-tight text-slate-ink">
-          {t.brand}
-          <span className="text-teal">.</span>
-        </Link>
+        <Logo variant="light" />
 
         <nav className="hidden items-center gap-8 lg:flex">
           <div
@@ -43,7 +41,7 @@ export default function Navbar() {
             onMouseLeave={() => setServicesOpen(false)}
           >
             <button
-              className="flex items-center gap-1 text-sm font-semibold text-slate-ink transition hover:text-deep"
+              className="flex items-center gap-1 text-sm font-semibold text-white/85 transition hover:text-white"
               onClick={() => setServicesOpen((v) => !v)}
             >
               {t.nav.services}
@@ -58,14 +56,14 @@ export default function Navbar() {
                     <Link
                       key={s.slug}
                       href={`/servicios/${s.slug}`}
-                      className="group flex items-start gap-3 rounded-xl p-3 transition hover:bg-soft/40"
+                      className="group flex items-start gap-3 rounded-xl p-3 transition hover:bg-mist/60"
                       onClick={() => setServicesOpen(false)}
                     >
-                      <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg bg-soft/60 text-deep">
+                      <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg bg-mist text-indigo">
                         <ServiceIcon iconKey={s.iconKey} className="h-5 w-5" />
                       </span>
                       <span>
-                        <span className="block text-sm font-semibold text-slate-ink group-hover:text-deep">
+                        <span className="block text-sm font-semibold text-slate-ink group-hover:text-indigo">
                           {s.title}
                         </span>
                         <span className="block text-xs text-slate-mute">{s.short}</span>
@@ -76,13 +74,13 @@ export default function Navbar() {
               </div>
             )}
           </div>
-          <Link href="/clientes" className="text-sm font-semibold text-slate-ink hover:text-deep">
+          <Link href="/clientes" className="text-sm font-semibold text-white/85 hover:text-white">
             {t.nav.clients}
           </Link>
-          <Link href="/nosotros" className="text-sm font-semibold text-slate-ink hover:text-deep">
+          <Link href="/nosotros" className="text-sm font-semibold text-white/85 hover:text-white">
             {t.nav.about}
           </Link>
-          <Link href="/contacto" className="text-sm font-semibold text-slate-ink hover:text-deep">
+          <Link href="/contacto" className="text-sm font-semibold text-white/85 hover:text-white">
             {t.nav.contact}
           </Link>
         </nav>
@@ -90,7 +88,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href="https://app.stratixsolutions.us"
-            className="btn-ghost"
+            className="inline-flex items-center gap-1 text-sm font-semibold text-white/85 transition hover:text-white"
           >
             {t.nav.systemCta} →
           </a>
@@ -101,52 +99,45 @@ export default function Navbar() {
 
         <button
           aria-label="Abrir menú"
-          className="grid h-10 w-10 place-items-center rounded-lg border border-slate-line lg:hidden"
+          className="grid h-10 w-10 place-items-center rounded-lg border border-white/20 lg:hidden"
           onClick={() => setMenuOpen(true)}
         >
           <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden>
-            <path d="M3 6h14M3 10h14M3 14h14" stroke="#1F2A30" strokeWidth="1.6" />
+            <path d="M3 6h14M3 10h14M3 14h14" stroke="#ffffff" strokeWidth="1.6" />
           </svg>
         </button>
       </div>
 
       {menuOpen && (
-        <div className="fixed inset-0 z-[60] flex flex-col bg-white px-6 py-6 lg:hidden">
+        <div className="fixed inset-0 z-[60] flex flex-col bg-navy px-6 py-6 text-white lg:hidden">
           <div className="flex items-center justify-between">
-            <Link
-              href="/"
-              className="font-display text-2xl font-extrabold text-slate-ink"
-              onClick={() => setMenuOpen(false)}
-            >
-              {t.brand}
-              <span className="text-teal">.</span>
-            </Link>
+            <Logo variant="light" />
             <button
               aria-label="Cerrar menú"
-              className="grid h-10 w-10 place-items-center rounded-lg border border-slate-line"
+              className="grid h-10 w-10 place-items-center rounded-lg border border-white/20"
               onClick={() => setMenuOpen(false)}
             >
               <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden>
-                <path d="M3 3l12 12M15 3 3 15" stroke="#1F2A30" strokeWidth="1.6" />
+                <path d="M3 3l12 12M15 3 3 15" stroke="#ffffff" strokeWidth="1.6" />
               </svg>
             </button>
           </div>
 
           <nav className="mt-8 flex flex-1 flex-col gap-1 overflow-y-auto">
-            <details className="group border-b border-slate-line py-2">
-              <summary className="flex cursor-pointer list-none items-center justify-between py-2 text-xl font-bold text-slate-ink">
+            <details className="group border-b border-white/10 py-2">
+              <summary className="flex cursor-pointer list-none items-center justify-between py-2 text-xl font-bold">
                 {t.nav.services}
-                <span className="text-2xl text-deep transition group-open:rotate-45">+</span>
+                <span className="text-2xl text-indigo transition group-open:rotate-45">+</span>
               </summary>
               <div className="mt-2 grid gap-1 pb-3">
                 {SERVICES.map((s) => (
                   <Link
                     key={s.slug}
                     href={`/servicios/${s.slug}`}
-                    className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm text-slate"
+                    className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm text-white/80"
                     onClick={() => setMenuOpen(false)}
                   >
-                    <span className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-md bg-soft/60 text-deep">
+                    <span className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-md bg-white/10 text-indigo">
                       <ServiceIcon iconKey={s.iconKey} className="h-4 w-4" />
                     </span>
                     {s.title}
@@ -163,7 +154,7 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="border-b border-slate-line py-4 text-xl font-bold text-slate-ink"
+                className="border-b border-white/10 py-4 text-xl font-bold"
                 onClick={() => setMenuOpen(false)}
               >
                 {l.label}
@@ -181,7 +172,7 @@ export default function Navbar() {
             </Link>
             <a
               href="https://app.stratixsolutions.us"
-              className="btn-secondary w-full"
+              className="inline-flex items-center justify-center gap-1 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white"
             >
               {t.nav.systemCta} →
             </a>

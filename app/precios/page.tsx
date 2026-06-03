@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function PreciosPage() {
   return (
-    <section className="min-h-[70vh] bg-gradient-to-b from-soft/60 to-white pt-36 pb-24">
+    <section className="min-h-[70vh] bg-gradient-to-b from-mist to-white pt-36 pb-24">
       <div className="container-x">
         <Reveal>
           <p className="section-tag">Precios</p>

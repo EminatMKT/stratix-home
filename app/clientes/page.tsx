@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 export default function ClientesPage() {
   return (
     <>
-      <section className="bg-gradient-to-b from-soft/60 to-white pt-36 pb-12">
+      <section className="bg-gradient-to-b from-mist to-white pt-36 pb-12">
         <div className="container-x">
           <Reveal>
             <p className="section-tag">Clientes</p>
           </Reveal>
           <Reveal delay={0.05}>
             <h1 className="section-title mt-4 max-w-3xl">
-              Marcas que <span className="text-deep">crecen con nosotros.</span>
+              Marcas que <span className="text-indigo">crecen con nosotros.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.1}>

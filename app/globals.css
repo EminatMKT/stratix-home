@@ -21,22 +21,22 @@
     @apply mx-auto w-full max-w-container px-6 lg:px-10;
   }
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-indigo px-7 py-3.5
            text-sm font-semibold text-white shadow-card transition
-           hover:bg-accent-dark hover:-translate-y-0.5 hover:shadow-lift;
+           hover:bg-indigo-600 hover:-translate-y-0.5 hover:shadow-lift;
   }
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-line
            bg-white px-7 py-3.5 text-sm font-semibold text-slate-ink transition
-           hover:border-deep hover:text-deep;
+           hover:border-navy hover:text-navy;
   }
   .btn-ghost {
     @apply inline-flex items-center gap-1 text-sm font-semibold text-slate-ink
-           transition hover:text-deep;
+           transition hover:text-navy;
   }
   .section-tag {
     @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em]
-           text-deep;
+           text-indigo;
   }
   .section-title {
     @apply font-display text-4xl font-bold leading-[1.1] text-slate-ink

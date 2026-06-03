@@ -24,11 +24,11 @@ export default function ServicioPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <section className="bg-gradient-to-b from-soft/60 to-white pt-36 pb-20">
+      <section className="bg-gradient-to-b from-mist to-white pt-36 pb-20">
         <div className="container-x grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <Reveal>
-              <Link href="/servicios" className="text-sm font-semibold text-deep">
+              <Link href="/servicios" className="text-sm font-semibold text-indigo">
                 ← Todos los servicios
               </Link>
             </Reveal>
@@ -50,7 +50,7 @@ export default function ServicioPage({ params }: { params: { slug: string } }) {
             </Reveal>
           </div>
           <Reveal delay={0.1}>
-            <span className="hidden h-24 w-24 place-items-center rounded-3xl bg-white text-deep shadow-card lg:grid">
+            <span className="hidden h-24 w-24 place-items-center rounded-3xl bg-white text-indigo shadow-card lg:grid">
               <ServiceIcon iconKey={service.iconKey} className="h-12 w-12" />
             </span>
           </Reveal>
@@ -72,10 +72,10 @@ export default function ServicioPage({ params }: { params: { slug: string } }) {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <ul className="space-y-3 rounded-2xl border border-slate-line bg-cream p-8">
+            <ul className="space-y-3 rounded-2xl border border-slate-line bg-mist/40 p-8">
               {service.includes.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-slate-ink">
-                  <span className="mt-1 grid h-5 w-5 flex-shrink-0 place-items-center rounded-full bg-teal/20 text-deep">
+                  <span className="mt-1 grid h-5 w-5 flex-shrink-0 place-items-center rounded-full bg-indigo/20 text-indigo">
                     <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden>
                       <path d="M2 5l2 2 4-4" stroke="currentColor" strokeWidth="1.8" fill="none" />
                     </svg>
@@ -88,7 +88,7 @@ export default function ServicioPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      <section className="bg-cream py-24">
+      <section className="bg-mist/40 py-24">
         <div className="container-x">
           <Reveal>
             <p className="section-tag">Servicios relacionados</p>
@@ -100,7 +100,7 @@ export default function ServicioPage({ params }: { params: { slug: string } }) {
                 href={`/servicios/${s.slug}`}
                 className="group flex flex-col rounded-2xl border border-slate-line bg-white p-7 transition hover:-translate-y-1 hover:shadow-lift"
               >
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-soft/70 text-deep">
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-mist text-indigo">
                   <ServiceIcon iconKey={s.iconKey} className="h-5 w-5" />
                 </span>
                 <h3 className="mt-5 font-display text-base font-bold text-slate-ink">{s.title}</h3>
