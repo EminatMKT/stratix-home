@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useInView, useReducedMotion } from 'framer-motion'
-import { t } from '@/lib/content'
+import { useLanguage } from '@/lib/i18n'
 
 function Counter({ to, suffix }: { to: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null)
@@ -34,6 +34,7 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
 }
 
 export default function Stats() {
+  const { t } = useLanguage()
   const items = t.stats.items
   return (
     <section className="relative overflow-hidden bg-navy">

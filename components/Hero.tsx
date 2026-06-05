@@ -2,11 +2,15 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { t } from '@/lib/content'
+import { useLanguage } from '@/lib/i18n'
 import BackgroundGeometry from './BackgroundGeometry'
 
 export default function Hero() {
+  const { t } = useLanguage()
   const h = t.hero
+  const [titleStart, ...titleRest] = h.title.split(',')
+  const titleHi = titleRest.join(',').trim()
+
   return (
     <section className="relative overflow-hidden pt-32 pb-28 text-white md:pt-44 md:pb-36">
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -35,11 +39,9 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.05 }}
           className="mt-7 max-w-5xl font-display text-[2.75rem] font-extrabold leading-[1.02] tracking-tight text-white md:text-[4.25rem] lg:text-[5rem]"
         >
-          {h.title.split(',')[0]},
+          {titleStart},
           <br />
-          <span className="text-indigo-300">
-            {h.title.split(',').slice(1).join(',').trim()}
-          </span>
+          <span className="text-indigo-300">{titleHi}</span>
         </motion.h1>
 
         <motion.div

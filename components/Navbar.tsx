@@ -2,12 +2,13 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { t } from '@/lib/content'
-import { SERVICES } from '@/lib/services'
+import { useLanguage } from '@/lib/i18n'
 import ServiceIcon from './ServiceIcon'
 import Logo from './Logo'
+import LanguageToggle from './LanguageToggle'
 
 export default function Navbar() {
+  const { t, services } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
@@ -52,7 +53,7 @@ export default function Navbar() {
             {servicesOpen && (
               <div className="absolute left-1/2 top-full -translate-x-1/2 pt-3">
                 <div className="grid w-[640px] grid-cols-2 gap-1 rounded-2xl border border-slate-line bg-white p-3 shadow-lift">
-                  {SERVICES.map((s) => (
+                  {services.map((s) => (
                     <Link
                       key={s.slug}
                       href={`/servicios/${s.slug}`}
@@ -86,6 +87,7 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <LanguageToggle variant="navbar" />
           <a
             href="https://app.stratixsolutions.us"
             className="inline-flex items-center gap-1 text-sm font-semibold text-white/85 transition hover:text-white"
@@ -98,7 +100,7 @@ export default function Navbar() {
         </div>
 
         <button
-          aria-label="Abrir menú"
+          aria-label={t.nav.openMenu}
           className="grid h-10 w-10 place-items-center rounded-lg border border-white/20 lg:hidden"
           onClick={() => setMenuOpen(true)}
         >
@@ -112,15 +114,18 @@ export default function Navbar() {
         <div className="fixed inset-0 z-[60] flex flex-col bg-navy px-6 py-6 text-white lg:hidden">
           <div className="flex items-center justify-between">
             <Logo variant="light" />
-            <button
-              aria-label="Cerrar menú"
-              className="grid h-10 w-10 place-items-center rounded-lg border border-white/20"
-              onClick={() => setMenuOpen(false)}
-            >
-              <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden>
-                <path d="M3 3l12 12M15 3 3 15" stroke="#ffffff" strokeWidth="1.6" />
-              </svg>
-            </button>
+            <div className="flex items-center gap-3">
+              <LanguageToggle variant="mobile" />
+              <button
+                aria-label={t.nav.closeMenu}
+                className="grid h-10 w-10 place-items-center rounded-lg border border-white/20"
+                onClick={() => setMenuOpen(false)}
+              >
+                <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden>
+                  <path d="M3 3l12 12M15 3 3 15" stroke="#ffffff" strokeWidth="1.6" />
+                </svg>
+              </button>
+            </div>
           </div>
 
           <nav className="mt-8 flex flex-1 flex-col gap-1 overflow-y-auto">
@@ -130,7 +135,7 @@ export default function Navbar() {
                 <span className="text-2xl text-indigo transition group-open:rotate-45">+</span>
               </summary>
               <div className="mt-2 grid gap-1 pb-3">
-                {SERVICES.map((s) => (
+                {services.map((s) => (
                   <Link
                     key={s.slug}
                     href={`/servicios/${s.slug}`}

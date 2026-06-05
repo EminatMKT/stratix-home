@@ -1,8 +1,10 @@
-import { t } from '@/lib/content'
-import { CLIENTS } from '@/lib/clients'
+'use client'
+
+import { useLanguage } from '@/lib/i18n'
 import Reveal from './Reveal'
 
 export default function Clientes() {
+  const { t, clients } = useLanguage()
   const c = t.clients
   return (
     <section className="bg-cream py-24 md:py-32">
@@ -18,7 +20,7 @@ export default function Clientes() {
         </Reveal>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {CLIENTS.map((cl, i) => (
+          {clients.map((cl, i) => (
             <Reveal key={cl.name} delay={(i % 4) * 0.06}>
               <div className="group h-full overflow-hidden rounded-2xl border border-slate-line bg-white transition hover:-translate-y-1 hover:shadow-lift">
                 <div

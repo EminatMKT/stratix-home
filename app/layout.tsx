@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { LanguageProvider } from '@/lib/i18n'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -14,29 +15,32 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL('https://stratixsolutions.us'),
   title: {
-    default: 'Stratix Solutions — Tu equipo de marketing completo',
-    template: '%s · Stratix Solutions',
+    default: 'Stratix Communications — Your full marketing team',
+    template: '%s · Stratix Communications',
   },
   description:
-    'Agencia de marketing full-service: estrategia, paid media, diseño, web, SEO, IA y más. Talento Ecuador · Presencia Miami · Calidad internacional.',
+    'Full-service marketing agency — strategy, paid media, design, web, SEO, AI and more. Built in Ecuador. Based in Miami. World-class output.',
   openGraph: {
-    title: 'Stratix Solutions — Tu equipo de marketing completo',
+    title: 'Stratix Communications — Your full marketing team',
     description:
-      'Agencia de marketing full-service: estrategia, paid media, diseño, web, SEO, IA y más.',
+      'Full-service marketing agency — strategy, paid media, design, web, SEO, AI and more.',
     url: 'https://stratixsolutions.us',
-    siteName: 'Stratix Solutions',
-    locale: 'es_EC',
+    siteName: 'Stratix Communications',
+    locale: 'en_US',
+    alternateLocale: ['es_EC'],
     type: 'website',
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={poppins.variable}>
+    <html lang="en" className={poppins.variable}>
       <body>
-        <Navbar />
-        <main className="min-h-[60vh]">{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Navbar />
+          <main className="min-h-[60vh]">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   )

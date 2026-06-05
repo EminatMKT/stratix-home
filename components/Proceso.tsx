@@ -1,7 +1,10 @@
-import { t } from '@/lib/content'
+'use client'
+
+import { useLanguage } from '@/lib/i18n'
 import Reveal from './Reveal'
 
 export default function Proceso() {
+  const { t } = useLanguage()
   const p = t.process
   return (
     <section className="bg-white py-24 md:py-32">

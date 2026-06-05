@@ -2,31 +2,30 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { SERVICES } from '@/lib/services'
+import { useLanguage } from '@/lib/i18n'
 import ServiceIcon from './ServiceIcon'
 import Reveal from './Reveal'
 
 export default function ServicesGrid() {
+  const { t, services } = useLanguage()
+  const g = t.servicesGrid
   return (
     <section className="bg-white py-24 md:py-32">
       <div className="container-x">
         <Reveal>
-          <p className="section-tag">Servicios</p>
+          <p className="section-tag">{g.eyebrow}</p>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="section-title mt-4 max-w-3xl">
-            11 servicios integrados <span className="text-indigo">bajo un solo equipo</span>
+            {g.titlePre} <span className="text-indigo">{g.titleHi}</span>
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="section-sub mt-5">
-            Trabajamos como tu departamento de marketing externo: estrategia, creatividad, paid,
-            web, datos y tecnología en un solo lugar.
-          </p>
+          <p className="section-sub mt-5">{g.sub}</p>
         </Reveal>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {SERVICES.map((s, i) => (
+          {services.map((s, i) => (
             <motion.div
               key={s.slug}
               initial={{ opacity: 0, y: 24 }}
@@ -44,7 +43,7 @@ export default function ServicesGrid() {
                 <h3 className="mt-6 font-display text-lg font-bold text-slate-ink">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">{s.short}</p>
                 <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-indigo">
-                  Ver más
+                  {g.cardCta}
                   <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden>
                     <path d="M3 7h8m-3-3 3 3-3 3" stroke="currentColor" strokeWidth="1.6" fill="none" />
                   </svg>

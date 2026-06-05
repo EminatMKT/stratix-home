@@ -1,12 +1,13 @@
 'use client'
 
 import { useMemo } from 'react'
-import { SERVICES } from '@/lib/services'
+import { useLanguage } from '@/lib/i18n'
 
 export default function ServicesMarquee() {
-  // Start from a random offset so the marquee never visibly resets at 0%.
+  const { services } = useLanguage()
+  // Random start offset prevents a visible reset at 0%. Same seed per page load.
   const startOffset = useMemo(() => -(Math.random() * 45 + 5), [])
-  const items = [...SERVICES, ...SERVICES] // duplicated for seamless loop
+  const items = [...services, ...services]
 
   return (
     <div className="border-y border-slate-line bg-mist/40 py-7 overflow-hidden">

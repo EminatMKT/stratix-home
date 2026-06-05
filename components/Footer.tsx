@@ -1,11 +1,14 @@
+'use client'
+
 import Link from 'next/link'
-import { t } from '@/lib/content'
-import { SERVICES } from '@/lib/services'
-import { CLIENTS } from '@/lib/clients'
+import { useLanguage } from '@/lib/i18n'
 import Logo from './Logo'
 
 export default function Footer() {
+  const { t, services, clients } = useLanguage()
   const f = t.footer
+  const telHref = `tel:${f.phone.replace(/[^\d+]/g, '')}`
+
   return (
     <footer className="bg-navy text-white/80">
       <div className="container-x py-20">
@@ -23,23 +26,23 @@ export default function Footer() {
           </div>
 
           <FooterCol title={f.colServices}>
-            {SERVICES.slice(0, 6).map((s) => (
+            {services.slice(0, 6).map((s) => (
               <FooterLink key={s.slug} href={`/servicios/${s.slug}`}>
                 {s.title}
               </FooterLink>
             ))}
-            <FooterLink href="/servicios">Ver todos →</FooterLink>
+            <FooterLink href="/servicios">{f.viewAll} →</FooterLink>
           </FooterCol>
 
           <FooterCol title={f.colCompany}>
-            <FooterLink href="/nosotros">Nosotros</FooterLink>
-            <FooterLink href="/clientes">Clientes</FooterLink>
-            <FooterLink href="/precios">Precios</FooterLink>
-            <FooterLink href="/contacto">Contacto</FooterLink>
+            <FooterLink href="/nosotros">{t.nav.about}</FooterLink>
+            <FooterLink href="/clientes">{t.nav.clients}</FooterLink>
+            <FooterLink href="/precios">{t.nav.pricing}</FooterLink>
+            <FooterLink href="/contacto">{t.nav.contact}</FooterLink>
           </FooterCol>
 
           <FooterCol title={f.colHolding}>
-            {CLIENTS.map((c) => (
+            {clients.map((c) => (
               <span key={c.name} className="block py-1 text-sm text-white/65">
                 {c.name}
               </span>
@@ -49,17 +52,17 @@ export default function Footer() {
           <FooterCol title={f.colContact}>
             <div className="space-y-4 text-sm text-white/70">
               <div>
-                <div className="font-semibold text-white">{f.offices.gye.city}</div>
-                <div className="text-white/60">{f.offices.gye.line}</div>
-              </div>
-              <div>
                 <div className="font-semibold text-white">{f.offices.mia.city}</div>
                 <div className="text-white/60">{f.offices.mia.line}</div>
+              </div>
+              <div>
+                <div className="font-semibold text-white">{f.offices.gye.city}</div>
+                <div className="text-white/60">{f.offices.gye.line}</div>
               </div>
               <a href={`mailto:${f.email}`} className="block text-indigo-300 hover:text-indigo-200">
                 {f.email}
               </a>
-              <a href={`tel:${f.phone.replace(/[^\d+]/g, '')}`} className="block text-white/70">
+              <a href={telHref} className="block text-white/70">
                 {f.phone}
               </a>
             </div>

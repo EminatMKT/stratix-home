@@ -1,12 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { t } from '@/lib/content'
+import { useLanguage } from '@/lib/i18n'
 import BackgroundGeometry from './BackgroundGeometry'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
 export default function CTAFinal() {
+  const { t } = useLanguage()
   const c = t.cta
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
   const [status, setStatus] = useState<Status>('idle')
@@ -28,6 +29,13 @@ export default function CTAFinal() {
     }
   }
 
+  const buttonLabel =
+    status === 'sending'
+      ? c.sending
+      : status === 'success'
+        ? c.sent
+        : `${c.submit} →`
+
   return (
     <section
       id="cta-final"
@@ -42,7 +50,7 @@ export default function CTAFinal() {
 
       <div className="container-x grid gap-14 lg:grid-cols-2 lg:items-center">
         <div className="text-white">
-          <p className="section-tag-light">Hablemos</p>
+          <p className="section-tag-light">{c.eyebrowLeft}</p>
           <h2 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] text-white md:text-5xl lg:text-[3.5rem]">
             {c.title}
           </h2>
@@ -51,11 +59,7 @@ export default function CTAFinal() {
             {c.subtitle}
           </p>
           <ul className="mt-8 space-y-3 text-sm text-white/90">
-            {[
-              'Diagnóstico estratégico gratuito',
-              'Plan de siguientes pasos',
-              'Sin compromiso ni costo',
-            ].map((l) => (
+            {c.bullets.map((l) => (
               <li key={l} className="flex items-center gap-3">
                 <span className="grid h-5 w-5 place-items-center rounded-full bg-indigo/40 text-white">
                   <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden>
@@ -74,30 +78,28 @@ export default function CTAFinal() {
         </div>
 
         <div className="rounded-2xl bg-white p-8 text-slate-ink shadow-lift md:p-10">
-          <h3 className="font-display text-xl font-bold text-slate-ink">
-            Cuéntanos sobre tu marca
-          </h3>
+          <h3 className="font-display text-xl font-bold text-slate-ink">{c.formHeading}</h3>
           <div className="mt-2 h-px w-12 bg-indigo" />
           <div className="mt-6 grid gap-4">
             <Field
               label={c.name}
               value={form.name}
               onChange={update('name')}
-              placeholder="Tu nombre"
+              placeholder={c.namePlaceholder}
             />
             <Field
               label={c.email}
               value={form.email}
               onChange={update('email')}
               type="email"
-              placeholder="tucorreo@empresa.com"
+              placeholder={c.emailPlaceholder}
             />
             <Field
               label={c.phone}
               value={form.phone}
               onChange={update('phone')}
               type="tel"
-              placeholder="+1 (954) 374-7547"
+              placeholder={c.phonePlaceholder}
             />
             <div>
               <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate">
@@ -106,7 +108,7 @@ export default function CTAFinal() {
               <textarea
                 value={form.message}
                 onChange={update('message')}
-                placeholder="¿Qué necesitas resolver con tu marketing?"
+                placeholder={c.messagePlaceholder}
                 rows={4}
                 className="w-full rounded-xl border border-slate-line bg-white px-4 py-3 text-sm text-slate-ink outline-none transition placeholder:text-slate-mute focus:border-indigo focus:ring-4 focus:ring-indigo/15"
               />
@@ -117,20 +119,14 @@ export default function CTAFinal() {
               disabled={status === 'sending'}
               className="btn-primary w-full justify-center disabled:opacity-60"
             >
-              {status === 'sending'
-                ? 'Enviando…'
-                : status === 'success'
-                  ? '¡Recibido!'
-                  : c.submit + ' →'}
+              {buttonLabel}
             </button>
             {status === 'success' && (
-              <p className="text-center text-sm font-medium text-indigo">
-                Gracias. Te respondemos en menos de 24 horas.
-              </p>
+              <p className="text-center text-sm font-medium text-indigo">{c.successMsg}</p>
             )}
             {status === 'error' && (
               <p className="text-center text-sm font-medium text-indigo">
-                Ocurrió un error. Escríbenos directo a {t.footer.email}.
+                {c.errorMsg} {t.footer.email}
               </p>
             )}
           </div>

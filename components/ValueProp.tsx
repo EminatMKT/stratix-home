@@ -1,7 +1,10 @@
-import { t } from '@/lib/content'
+'use client'
+
+import { useLanguage } from '@/lib/i18n'
 import Reveal from './Reveal'
 
 export default function ValueProp() {
+  const { t } = useLanguage()
   const v = t.valueProp
   return (
     <section className="bg-navy py-24 text-white md:py-32">
