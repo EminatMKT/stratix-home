@@ -97,7 +97,7 @@ export default function CTAFinal() {
               value={form.phone}
               onChange={update('phone')}
               type="tel"
-              placeholder="+593 99 999 9999"
+              placeholder="+1 (954) 374-7547"
             />
             <div>
               <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate">

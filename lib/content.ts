@@ -108,11 +108,15 @@ export const COPY = {
       terms: 'Términos',
       poweredBy: 'Powered by Eminat Holding · 2026',
       offices: {
-        gye: { city: 'Guayaquil, Ecuador', line: 'Av. Francisco de Orellana · Centro Empresarial' },
-        mia: { city: 'Miami, Florida', line: '1395 Brickell Ave, Suite 800' },
+        gye: { city: 'Guayaquil, Ecuador', line: 'Av. del Bombero Km 6.5' },
+        mia: {
+          city: 'Miami, Florida',
+          line: '14601 SW 29th Street, Suite 108, Miramar, FL 33027',
+        },
       },
-      email: 'marketing@stratixsolutions.us',
-      phone: '+593 99 999 9999',
+      email: 'marketing@eminat.net',
+      phone: '+1 (954) 374-7547',
+      linkedin: 'https://www.linkedin.com/company/stratix-communications/',
     },
   },
 } as const
