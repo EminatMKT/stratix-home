@@ -209,6 +209,7 @@ export const COPY_RAW = {
     email: 'marketing@eminat.net',
     phone: '+1 (954) 374-7547',
     linkedin: 'https://www.linkedin.com/company/stratix-communications/',
+    instagram: 'https://www.instagram.com/stratix360/',
   },
   pages: {
     services: {
