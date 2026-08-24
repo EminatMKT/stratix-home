@@ -27,3 +27,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# todo-plugin (notas internas, no se versionan)
+/.todo/
